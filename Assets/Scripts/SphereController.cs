@@ -13,7 +13,6 @@ public class SphereController : MonoBehaviour
     private string _color = "_Color";
     private float _highlightedDuration = 3f;
 
-
     // Start is called before the first frame update
     void Awake()
     {
