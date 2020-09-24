@@ -9,5 +9,4 @@ public class GameController : MonoBehaviour
         Life--;
         Debug.Log(Life);
     }
-    
 }
