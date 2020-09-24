@@ -15,12 +15,11 @@ public class SphereController : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _cubeMaterials = cubeRenderer.materials;
         _sphereMaterial = GetComponent<Renderer>().material;
         _defaultSphereColor = _sphereMaterial.GetColor(_color);
-        StartCoroutine(HighlightPaintedSphere());
     }
 
     public IEnumerator HighlightPaintedSphere()
@@ -43,7 +42,7 @@ public class SphereController : MonoBehaviour
         {
             _sphereMaterial.color = sphereColor;
             _cubeMaterials[1].color = sphereColor;
+            Destroy(gameObject);
         }
     }
-    
 }

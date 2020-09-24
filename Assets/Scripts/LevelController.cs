@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     [SerializeField] private GameObject[] levels;
+    [SerializeField] private HintMap hintMap;
     private BoardController _boardController;
     private GameObject _currentLevel;
     private static int _index;
@@ -12,6 +13,7 @@ public class LevelController : MonoBehaviour
     public void HighlightSpheres()
     {
         _boardController = FindObjectOfType<BoardController>();
+        hintMap.ReminderButtonOnClick();
         _boardController.HighlightSpheres();
     }
 
@@ -19,6 +21,7 @@ public class LevelController : MonoBehaviour
     {
         DestroyLevel();
         _currentLevel = Instantiate(levels[_index]);
+        HighlightSpheres();
         IncreaseIndex();
     }
 
@@ -27,6 +30,7 @@ public class LevelController : MonoBehaviour
         DestroyLevel();
         DecreaseIndex();
         _currentLevel = Instantiate(levels[_index]);
+        HighlightSpheres();
     }
 
     private void IncreaseIndex()
