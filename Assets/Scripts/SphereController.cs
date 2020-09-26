@@ -9,6 +9,7 @@ public class SphereController : MonoBehaviour
 
     private Material[] _cubeMaterials;
     private Material _sphereMaterial;
+    private Color _defaultCubeColor;
     private Color _defaultSphereColor;
     private string _color = "_Color";
     private float _highlightedDuration = 3f;
@@ -24,9 +25,16 @@ public class SphereController : MonoBehaviour
     public IEnumerator HighlightPaintedSphere()
     {
         if (isPainted)
+        {
+            _defaultCubeColor = _cubeMaterials[1].color;
             _sphereMaterial.color = sphereColor;
+            _cubeMaterials[1].color = sphereColor;
+        }
+
         yield return new WaitForSeconds(_highlightedDuration);
         _sphereMaterial.color = _defaultSphereColor;
+        if (isPainted)
+            _cubeMaterials[1].color = _defaultCubeColor;
     }
 
     private void OnTriggerEnter(Collider other)
