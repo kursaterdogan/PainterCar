@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HintMap : MonoBehaviour
 {
     [SerializeField] private GameObject fullMap;
-    private float _highlightedDuration = 3f;
+    public static float _highlightedDuration = 3f;
 
     public void ReminderButtonOnClick()
     {
