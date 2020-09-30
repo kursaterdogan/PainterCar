@@ -31,7 +31,7 @@ public class SphereController : MonoBehaviour
             _cubeMaterials[1].color = sphereColor;
         }
 
-        yield return new WaitForSeconds(_highlightedDuration);
+        yield return new WaitForSeconds(HintMap._highlightedDuration);
         _sphereMaterial.color = _defaultSphereColor;
         if (isPainted)
             _cubeMaterials[1].color = _defaultCubeColor;
